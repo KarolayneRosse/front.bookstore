@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h3>Voce tá na home</h3>
-
+  <div id="telaInicial">
     <div>
       <b-carousel
         id="carousel-1"
@@ -53,14 +51,14 @@
         </b-carousel-slide>
       </b-carousel>
     </div>
-
-    <div>
+    <div class="armas">
       <Weapons :weapons="weapons"></Weapons>
     </div>
   </div>
 </template>
 <script>
 import Weapons from "../components/Weapons";
+
 export default {
   components: {
     Weapons,
@@ -72,4 +70,9 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+.armas {
+  display: flex;
+  justify-content: center;
+}
+</style>

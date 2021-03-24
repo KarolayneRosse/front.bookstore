@@ -1,27 +1,55 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
+  // {
+  //   path: '/',
+  //   name: 'Home',
+  //   component: Home
+  // },
+  // {
+  //   path: '/about',
+  //   name: 'About',
+  //   component: () => import('../views/About.vue')
+  // }
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'TelaIni',
+    component: () => import('../views/TelaInicial.vue')
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/Login.vue')
+  },
+  {
+    path: '/cadastro',
+    component: () => import('../views/Cadastro.vue')
+  },
+  {
+    path: '/home',
+    name:'Home',
+    component: () => import('../views/Home.vue')
   }
 ]
 
 const router = new VueRouter({
   routes
+})
+
+router.beforeEach((to, from, next)=>{
+  if (to.name === 'Home') {
+    localStorage.getItem('token') ? next() : next('/')
+  }
+  if (to.name === 'TelaIni') {
+    if (localStorage.getItem('token')) {
+      next('/home')
+    }
+  }
+
+  next()
 })
 
 export default router
