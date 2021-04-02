@@ -37,7 +37,7 @@ export default new Vuex.Store({
         price: 70.99
       },
     ],
-    loggedIn: true,
+    loggedIn: false,
     user:{},
     cart: []
   },

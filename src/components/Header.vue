@@ -1,23 +1,23 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" class="navColor">
-      <b-navbar-brand href="/">
-        Gun Shop
+    <b-navbar toggleable="lg" type="light" class="navColor">
+      <b-navbar-brand href="/" class="text-light">
+        Book Store
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
-          <router-link to="/cadastro" v-show="!logged" class="mr-2 "
+          <router-link to="/cadastro" v-show="!logged" class="mr-2 text-light"
             >Cadastre-se</router-link
           >
           
-          <router-link to="/login" v-show="!logged" class="ml-2 "
+          <router-link to="/login" v-show="!logged" class="ml-2 text-light"
             >Login</router-link
           >
 
-          <b-button variant="outline" v-show="logged">
+          <b-button variant="outline" v-show="logged" class="text-light">
             <b-icon icon="cart2"></b-icon>
           </b-button>
 
@@ -25,7 +25,7 @@
             no-caret
             dropleft
             variant="outline"
-            class="ml-2 dropColor"
+            class="ml-2 dropColor text-light"
             v-show="logged"
           >
             <template #button-content>
@@ -66,7 +66,8 @@ export default {
 </script>
 <style scoped>
 .navColor {
-  background-color: forestgreen;
+  background-color: black;
+  color: white;
 }
 .dropColor {
   color: black;

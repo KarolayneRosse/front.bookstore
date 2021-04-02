@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <div id="nav">
       <Header></Header>
     </div>
@@ -31,20 +31,44 @@ export default {
 //   background-color: #212121;
 // }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
 
+body{
+  background-color: gray;
+}
+
 #nav {
   a {
-    color: black;
+    color: white;
 
     &.router-link-exact-active {
       color: blue;
     }
   }
+}
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(233, 227, 227, 0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 2px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(226, 222, 222, 0.3);
+	background-color: #555;
 }
 </style>
