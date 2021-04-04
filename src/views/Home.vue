@@ -1,7 +1,5 @@
 <template>
   <div>
-    <h3>Voce tá na home</h3>
-
     <div>
       <b-carousel
         id="carousel-1"

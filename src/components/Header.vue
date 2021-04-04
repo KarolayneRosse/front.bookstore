@@ -7,7 +7,7 @@
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-      <b-collapse id="nav-collapse" is-nav>
+      <b-collapse id="nav-collapse" is-nav class="text-light">
         <b-navbar-nav class="ml-auto">
           <router-link to="/cadastro" v-show="!logged" class="mr-2 text-light"
             >Cadastre-se</router-link
@@ -29,7 +29,7 @@
             v-show="logged"
           >
             <template #button-content>
-              <b-icon icon="person-circle" scale="2"></b-icon>
+              <b-icon icon="person-circle" scale="2" class="text-light"></b-icon>
             </template>
 
             <b-dropdown-item>Link inativo</b-dropdown-item>

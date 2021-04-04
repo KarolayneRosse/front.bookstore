@@ -39,7 +39,7 @@ export default {
 }
 
 body{
-  background-color: gray;
+  background-color: white;
 }
 
 #nav {

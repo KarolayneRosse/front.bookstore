@@ -14,7 +14,7 @@ Vue.use(BootstrapVueIcons)
 Vue.use(VueResource)
 
 Vue.filter('money', value =>{
-  return 'R$' + String(value).replace('.',',')
+  return 'R$' + String(Number(value).toFixed(2)).replace('.',',')
 })
 
 Vue.http.options.root = 'http://api.gunshop/api/'

@@ -1,16 +1,16 @@
 <template>
   <div xl12 xs1 md2 class="divCard">
     <div class="row divCard">
-      <b-card
+      <b-card 
         class="m-2 border-0 cartao"
         v-for="arma in weapons"
         :key="arma.name"
       >
         <div>
-          <b-img
-            src="../assets/teste_image_edited.jpg"
-            height="90"
-            fluid
+          <b-img @click="pushDetail(arma.id)" 
+            :src="require(`@/assets/${arma.images[0].url}`)"
+            height="280"
+            width="200"
           ></b-img>
         </div>
 
@@ -49,6 +49,9 @@ export default {
 
       cart.push(item);
     },
+    pushDetail(id){
+      this.$router.push('/detail/' + id)
+    }
   },
 };
 </script>
@@ -60,7 +63,7 @@ export default {
 }
 .cartao {
   width: 250px;
-  height: 330px;
+  height: 400px;
 }
 .divCard {
   display: flex;
