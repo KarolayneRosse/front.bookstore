@@ -11,6 +11,7 @@ export default new Vuex.Store({
           {url: '5passosDeVoceCapa.jpg'},
           {url: '5passosDeVoceCapa1.jpg'}
         ],
+        autor: "Rachael Lippincott",
         name: 'A cinco passos de você',
         description:" Stella Grant gosta de estar no controle. Ela parece ser uma adolescente típica, mas em sua rotina há listas de" +
           "tarefas e inúmeros remédios que ela deve tomar para controlar a fibrose cística, uma doença crônica que impede que seus " +
@@ -39,6 +40,7 @@ export default new Vuex.Store({
         images:[
           {url: 'AliceNoPaisDasMaravilhas.jpg'}
         ],
+        autor: "Lewis Carrol",
         name: 'Alice no país das maravilhas',
         description: "Com as ilustrações originais que deram vida aos personagens, explore o universo único criado por Lewis Carroll. " +
           "Esta é a história sobre uma garotinha caindo de um buraco de coelho que se tornou a heroína mais popular da literatura " +
@@ -66,6 +68,7 @@ export default new Vuex.Store({
           {url: 'Capa-4 hp.jpg'},
           {url: 'Capa-5 hp.jpg'},
         ],
+        autor: "J.K. Rowlling",
         name: 'Box Harry Potter Tradicional',
         description: "Esse box especial e inédito é feito para você que gosta das capas tradicionais de Harry Potter." + 
           "Os sete livros da saga do bruxo mais querido do mundo reunidos num box rígido, com capas em brochura, projeto gráfico " + 
@@ -96,6 +99,7 @@ export default new Vuex.Store({
           {url: 'extraordinarioCapa.jpg'},
           {url: 'extraordinarioCapa1.jpg'},
         ],
+        autor: "R. J. Palacio",
         name: 'Extraordinário',
         description: "August Pullman, o Auggie, nasceu com uma síndrome cuja sequela é uma severa deformidade facial, "+
           "que lhe impôs diversas cirurgias e complicações médicas. Por isso ele nunca frequentou uma escola de verdade.. "+
@@ -129,6 +133,7 @@ export default new Vuex.Store({
           {url: 'vDeVingança-capa1.jpg'},
           {url: 'vDeVingança-capa2.jpg'},
         ],
+        autor: "Alan Moore e David Lloyd",
         name: 'V de vingança',
         description: "Uma poderosa e aterradora história sobre a perda da liberdade e cidadania em um mundo totalitário bem possível," + 
           "V DE VINGANÇA permanece como uma das maiores obras dos quadrinhos e o trabalho que revelou ao mundo seus criadores, " +
@@ -153,6 +158,7 @@ export default new Vuex.Store({
           {url: 'corteCapa1.jpg'},
           {url: 'corteCapa3.jpg'},
         ],
+        autor: "Sarah J. Maas e Mariana Kohnert",
         name: 'Corte de espinhos e rosas (Vol. 1)',
         description: "Ela roubou uma vida. Agora deve pagar com o coração. Corte de espinhos e rosas é primeiro" +
           "volume da série best-seller, da mesma autora da saga Trono de vidro.Num mundo dividido uma muralha "+
@@ -191,6 +197,7 @@ export default new Vuex.Store({
           {url: 'corte2capa2.jpg'},
           {url: 'corte2capa3.jpg'},
         ],
+        autor: "Sarah J. Maas e Mariana Kohnert",
         name: 'Corte de névoa e fúria(Vol. 2 de Corte de espinhos e rosas)',
         description: "Corte de névoa e fúria é o esperado segundo volume da saga iniciada em Corte de espinhos "+
           "e rosas, da mesma autora da série Trono de vidro.Neste livro, seguimos a saga de Feyre Archeron, "+
@@ -228,6 +235,7 @@ export default new Vuex.Store({
           {url: 'corte3capa2.jpg'},
           {url: 'corte3capa3.jpg'},
         ],
+        autor: "Sarah J. Maas e Mariana Kohnert",
         name: 'Corte de asas e ruína(Vol.3 de Corte de espinhos e rosas)',
         description: "Corte de asas e ruína é o terceiro volume da série best-seller Corte de Espinhos e "+
           "Rosas, da mesma autora da saga Trono de vidro.Seguindo os acontecimentos do volume anterior,"+ 
@@ -267,6 +275,7 @@ export default new Vuex.Store({
           {url: 'corte4Capa2.jpg'},
           {url: 'corte4Capa3.jpg'},
         ],
+        autor: "Sarah J. Maas e Mariana Kohnert",
         name: 'Corte de gelo e estrelas(Vol.4 de Corte de espinhos e rosas)',
         description:  "A série best seller Corte de Espinhos e Rosas, da mesma autora de Trono de Vidro,"+
           "ganha um spin-off em Corte de gelo e estrelas, volume que tem início após os acontecimentos "+
@@ -304,6 +313,7 @@ export default new Vuex.Store({
           {url: 'morroVento1.jpg'},
           {url: 'morroVento2.jpg'},
         ],
+        autor: "Emily Brontë",
         name: 'Morro dos ventos uivantes',
         description:"Único romance da escritora inglesa Emily Bronte, O morro dos ventos uivantes retrata "+
           "uma trágica historia de amor e obsessão em que os personagens principais são a obstinada e "+
@@ -327,6 +337,7 @@ export default new Vuex.Store({
           {url: 'cartasDiabo2.jpg'},
           {url: 'cartasDiabo3.jpg'},
         ],
+        autor: "C. S. Lewis e Gabriele Greggersen",
         name: 'Cartas de um diabo a seu aprendiz',
         description: "Irônica, astuta, irreverente. Assim pode ser descrita esta obra-prima de C.S. Lewis, "+
           "dedicada a seu amigo J.R.R. Tolkien. Um clássico da literatura cristã, este retrato satírico da vida humana, "+

@@ -17,7 +17,8 @@
             >Login</router-link
           >
 
-          <b-button variant="outline" v-show="logged" class="text-light mb-1">
+          <b-button @click="$router.push('/carrinho')"
+            variant="outline" v-show="logged" class="text-light mb-1">
             <b-badge pill class="badgeBtn">{{cartSize}}</b-badge>
             <b-icon icon="cart" scale="2"></b-icon>
           </b-button>

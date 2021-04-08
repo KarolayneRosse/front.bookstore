@@ -4,16 +4,6 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'Home',
-  //   component: Home
-  // },
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   component: () => import('../views/About.vue')
-  // }
   {
     path: '/',
     name: 'TelaIni',
@@ -36,6 +26,10 @@ const routes = [
   {
     path: '/detail/:book',
     component: () => import('../views/BookDetail.vue')
+  },
+  {
+    path: '/carrinho',
+    component: () => import('../views/Carrinho.vue')
   }
 ]
 

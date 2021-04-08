@@ -1,48 +1,49 @@
 <template>
   <div class="main">
-    <br />
-    <div>
-      <h2 class="text-center">
-        Detalhes do livro
-      </h2>
-    </div>
     <div class="divCard">
-      <b-col>
-        <b-img
-          :src="require(`@/assets/${book.images[0].url}`)"
-          height="350"
-          width="250"
-        />
-      </b-col>
-
-      <b-col>
-        <h3>{{ book.name }}</h3>
-        <!-- <p>{{ book.description }}</p> -->
-      </b-col>
-
-      <b-col>
-        <div>
-          <h4>{{ book.price | money }}</h4>
-        </div>
-        <br />
-        <div>
-          <b-row style="margin-left: 0%">
-            <p class="mt-3">Quantidade:</p>
-            <b-form-select
-              :options="options"
-              v-model="qnt"
-              class="selectQnt bg-transparent border-dark border-left-0 border-right-0 border-top-0 ml-2"
-            >
-            </b-form-select>
-          </b-row>
-        </div>
-        <br />
-        <div>
-          <b-button variant="warning" pill @click="adicionarCarrinho()">
-            Adicionar ao carrinho
-          </b-button>
-        </div>
-      </b-col>
+      <b-row class="mt-5">
+        <b-col>
+          <b-img
+            :src="require(`@/assets/${book.images[0].url}`)"
+            height="350"
+            width="250"
+          />
+        </b-col>
+        <b-col>
+          <h3 class="bookName text-left">{{ book.name }}</h3>
+          <br />
+          <br />
+          <div :class="btnLer ? 'descriptionComplete p-2 text-justify' : 'description p-2 text-justify'">
+            <p>{{ book.description }}</p>
+          </div>
+          <b-button @click="btnLer = !btnLer" variant="outline">{{btnLer ? 'Ler menos' : 'Ler mais'}}</b-button>
+        </b-col>
+        <b-col>
+          <div class="ml-3 mt-5">
+            <div>
+              <h4>{{ book.price | money }}</h4>
+            </div>
+            <br />
+            <div>
+              <b-row style="margin-left: 0%">
+                <p class="mt-3">Quantidade:</p>
+                <b-form-select
+                  :options="options"
+                  v-model="qnt"
+                  class="selectQnt bg-transparent border-dark border-left-0 border-right-0 border-top-0 ml-2"
+                >
+                </b-form-select>
+              </b-row>
+            </div>
+            <br />
+            <div>
+              <b-button variant="warning" pill @click="adicionarCarrinho()">
+                Adicionar ao carrinho
+              </b-button>
+            </div>
+          </div>
+        </b-col>
+      </b-row>
     </div>
     <br />
     <hr />
@@ -62,16 +63,18 @@
         <p class="mb-0"><b>Dimensões: </b>{{ book.details.dimensoes }}</p>
       </div>
     </div>
-    <br>
-    <br>
+    <br />
+    <br />
   </div>
 </template>
+
 <script>
 export default {
   data() {
     return {
+      btnLer: false,
       book: {},
-      qnt: null,
+      qnt: 1,
       options: [
         { value: 1, text: "1" },
         { value: 2, text: "2" },
@@ -134,8 +137,8 @@ export default {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 400px;
-  width: 90%;
+  height: 100%;
+  width: 100%;
 }
 .text-align {
   text-align: center;
@@ -145,5 +148,21 @@ export default {
 }
 .selectQnt {
   width: 60px;
+}
+.bookName {
+  margin-top: 0%;
+  position: absolute;
+}
+.description {
+  width: 400px;
+  overflow: hidden;
+  max-height: 196px;
+  text-align: justify;
+}
+.descriptionComplete {
+  width: 400px;
+  overflow: hidden;
+  max-height: 100%;
+  text-align: justify;
 }
 </style>
