@@ -17,15 +17,16 @@
             >Login</router-link
           >
 
-          <b-button variant="outline" v-show="logged" class="text-light">
-            <b-icon icon="cart2"></b-icon>
+          <b-button variant="outline" v-show="logged" class="text-light mb-1">
+            <b-badge pill class="badgeBtn">{{cartSize}}</b-badge>
+            <b-icon icon="cart" scale="2"></b-icon>
           </b-button>
 
           <b-dropdown
             no-caret
             dropleft
             variant="outline"
-            class="ml-2 dropColor text-light"
+            class="ml-2 dropColor text-light mt-3"
             v-show="logged"
           >
             <template #button-content>
@@ -52,6 +53,9 @@ export default {
     logged() {
       return this.$store.state.loggedIn;
     },
+    cartSize(){
+      return this.$store.state.cart.length;
+    }
   },
   methods:{
     logout(){
@@ -74,5 +78,10 @@ export default {
 }
 .icoBtn {
   color: crimson;
+}
+.badgeBtn{
+  display: flex;
+  top: 10px;
+  left: 5px;
 }
 </style>

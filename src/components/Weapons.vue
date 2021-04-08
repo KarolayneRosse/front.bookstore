@@ -24,10 +24,10 @@
         </b-button>
 
         <div>
-          <router-link :to="`/detail/${arma.id}`"
+          <h5 @click="$router.push(`/detail/${arma.id}`)"
             class="attName text-dark" v-b-tooltip.hover :title="arma.name">
             {{ arma.name }}
-          </router-link>
+          </h5>
 
           <p class="price">{{ arma.price | money }}</p>
         </div>
@@ -72,7 +72,7 @@ export default {
   align-items: center;
 }
 .attName {
-  max-width: 20ch;
+  max-width: 18ch;
   overflow: hidden;
   text-overflow: unset;
   white-space: nowrap;

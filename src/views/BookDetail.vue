@@ -2,13 +2,17 @@
   <div class="main">
     <br />
     <div>
-      <h3 class="text-center">
+      <h2 class="text-center">
         Detalhes do livro
-      </h3>
+      </h2>
     </div>
     <div class="divCard">
       <b-col>
-        <b-img :src="require(`@/assets/${book.images[0].url}`)" height="350" width="250"/>
+        <b-img
+          :src="require(`@/assets/${book.images[0].url}`)"
+          height="350"
+          width="250"
+        />
       </b-col>
 
       <b-col>
@@ -43,13 +47,23 @@
     <br />
     <hr />
     <div>
-      <p>Livros que você pode gostar</p>
+      <h4 class="ml-3">Livros que você pode gostar</h4>
     </div>
     <br />
     <hr />
     <div>
-      <p>Detalhes do produto</p>
+      <h4 class="ml-3">Detalhes do produto</h4>
+      <div class="ml-5">
+        <p class="mb-0"><b>Editora: </b>{{ book.details.editora }}</p>
+        <p class="mb-0"><b>Idioma: </b>{{ book.details.idioma }}</p>
+        <p class="mb-0"><b>Capa simples: </b>{{ book.details.capa }}</p>
+        <p class="mb-0"><b>ISBN-10: </b>{{ book.details.isbn_10 }}</p>
+        <p class="mb-0"><b>ISBN-13: </b>{{ book.details.isbn_13 }}</p>
+        <p class="mb-0"><b>Dimensões: </b>{{ book.details.dimensoes }}</p>
+      </div>
     </div>
+    <br>
+    <br>
   </div>
 </template>
 <script>
