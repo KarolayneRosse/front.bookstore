@@ -1,21 +1,20 @@
 <template>
-  <div>
+  <div id="cart">
     <div>
       <div class="ml-3 mt-2">
         <h4>Carrinho de compras</h4>
       </div>
       <div>
-        <b-card class="border-top-1">
+        <b-card class="border-top-1" v-for="book in books" :key="book.id">
           <b-row>
             <b-col sm="2">
-              <b-img src="https://picsum.photos/120/170/?image=36"></b-img>
+              <b-img width="130" :src="require(`@/assets/${book.images[0].url}`)"></b-img>
             </b-col>
             <b-col>
               <h5>
-                Nome do livro - (Nome mais extendido porque tem livros com nomes
-                grandes)
+                {{book.name}}
               </h5>
-              <p class="mb-0">Nome do autor</p>
+              <p class="mb-0">{{book.autor}}</p>
               <small> <b>Capa comun</b> </small>
               <br />
               <b-row style="margin-left: 0%">
@@ -23,21 +22,21 @@
                   <small class="mt-3">Qnt:</small>
                   <b-form-select
                     :options="options"
-                    v-model="qnt"
+                    v-model="book.qnt"
                     class="selectQnt bg-transparent border-dark border-left-0 border-right-0 border-top-0 border-bottom-0 ml-2 mt-1"
                   >
                   </b-form-select>
                 </b-row>
                 <div class="ml-4 mt-2">
                     |
-                <b-button variant="outline">
+                <b-button variant="outline" v-b-tooltip.hover title="Ainda não tenho funcionalidade">
                     <small>Excluir</small>
                 </b-button>
                 </div>
               </b-row>
             </b-col>
             <b-col>
-              <h5>R$ 56,36</h5>
+              <h5>{{book.price | money}}</h5>
             </b-col>
           </b-row>
         </b-card>
@@ -81,12 +80,24 @@ export default {
         { value: 29, text: "29" },
         { value: 30, text: "30" },
       ],
+      books: []
     };
   },
+  created(){
+    this.getBooksCart();
+  },
+  methods:{
+    getBooksCart(){
+      this.books = this.$store.state.cart;
+    }
+  }
 };
 </script>
 <style scoped>
 .selectQnt {
   width: 60px;
+}
+#cart{
+  height: 100%;
 }
 </style>

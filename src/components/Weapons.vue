@@ -14,14 +14,14 @@
           ></b-img>
         </div>
 
-        <b-button
+        <!-- <b-button
           variant="warning"
           v-show="logged"
           class="btnComprar"
           @click="addToCart(arma)"
         >
           <b>Comprar</b>
-        </b-button>
+        </b-button> -->
 
         <div>
           <h5 @click="$router.push(`/detail/${arma.id}`)"

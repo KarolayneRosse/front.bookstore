@@ -2,7 +2,7 @@
   <div class="main">
     <div class="divCard">
       <b-row class="mt-5">
-        <b-col>
+        <b-col class="mr-5">
           <b-img
             :src="require(`@/assets/${book.images[0].url}`)"
             height="350"
@@ -13,12 +13,20 @@
           <h3 class="bookName text-left">{{ book.name }}</h3>
           <br />
           <br />
-          <div :class="btnLer ? 'descriptionComplete p-2 text-justify' : 'description p-2 text-justify'">
+          <div
+            :class="
+              btnLer
+                ? 'descriptionComplete p-2 text-justify'
+                : 'description p-2 text-justify'
+            "
+          >
             <p>{{ book.description }}</p>
           </div>
-          <b-button @click="btnLer = !btnLer" variant="outline">{{btnLer ? 'Ler menos' : 'Ler mais'}}</b-button>
+          <b-button @click="btnLer = !btnLer" variant="outline">{{
+            btnLer ? "Ler menos" : "Ler mais"
+          }}</b-button>
         </b-col>
-        <b-col>
+        <b-col class="ml-5">
           <div class="ml-3 mt-5">
             <div>
               <h4>{{ book.price | money }}</h4>
@@ -49,6 +57,106 @@
     <hr />
     <div>
       <h4 class="ml-3">Livros que você pode gostar</h4>
+      <br />
+      <div>
+        <b-carousel :interval="0" ref="myCarousel">
+          <b-carousel-slide>
+            <template #img>
+              <b-row>
+                <b-col sm="1"></b-col>
+                <b-col>
+                  <b-card>
+                    <h3>Card</h3>
+                    <p>Texto simples 1</p>
+                  </b-card>
+                </b-col>
+                <b-col>
+                  <b-card>
+                    <h3>Card</h3>
+                    <p>Texto simples 2</p>
+                  </b-card>
+                </b-col>
+                <b-col>
+                  <b-card>
+                    <h3>Card</h3>
+                    <p>Texto simples 3</p>
+                  </b-card>
+                </b-col>
+                <b-col>
+                  <b-card>
+                    <h3>Card</h3>
+                    <p>Texto simples 4</p>
+                  </b-card>
+                </b-col>
+                <b-col>
+                  <b-card>
+                    <h3>Card</h3>
+                    <p>Texto simples 5</p>
+                  </b-card>
+                </b-col>
+                <b-col sm="1"></b-col>
+              </b-row>
+            </template>
+          </b-carousel-slide>
+          <b-carousel-slide>
+            <template #img>
+              <b-row>
+                <b-col sm="1"></b-col>
+                <b-col>
+                  <b-card>
+                    <h3>Card</h3>
+                    <p>Texto simples 6</p>
+                  </b-card>
+                </b-col>
+                <b-col>
+                  <b-card>
+                    <h3>Card</h3>
+                    <p>Texto simples 7</p>
+                  </b-card>
+                </b-col>
+                <b-col>
+                  <b-card>
+                    <h3>Card</h3>
+                    <p>Texto simples 8</p>
+                  </b-card>
+                </b-col>
+                <b-col>
+                  <b-card>
+                    <h3>Card</h3>
+                    <p>Texto simples 9</p>
+                  </b-card>
+                </b-col>
+                <b-col>
+                  <b-card>
+                    <h3>Card</h3>
+                    <p>Texto simples 10</p>
+                  </b-card>
+                </b-col>
+                <b-col sm="1"></b-col>
+              </b-row>
+            </template>
+          </b-carousel-slide>
+          
+          <b-button style="width: 70px"
+            class="carousel-control-prev"
+            role="button"
+            data-slide="prev"
+            @click="prev()"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </b-button>
+          <b-button style="width: 70px"
+            class="carousel-control-next"
+            role="button"
+            data-slide="next"
+            @click="next()"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </b-button>
+        </b-carousel>
+      </div>
     </div>
     <br />
     <hr />
@@ -74,6 +182,8 @@ export default {
     return {
       btnLer: false,
       book: {},
+      listBooks1:[],
+      listBooks2:[],
       qnt: 1,
       options: [
         { value: 1, text: "1" },
@@ -112,7 +222,27 @@ export default {
   created() {
     this.getBook();
   },
+  computed: {
+    books() {
+      return this.$store.state.weapons;
+    },
+  },
   methods: {
+    getListBooks(){
+      this.books.forEach( (book) =>{
+        if (!book.id === this.$route.params) {
+          if (this.listBooks1.length < 5) {
+            this.listBooks1.push(book)
+          }
+        }
+      })
+    },
+    prev() {
+      this.$refs.myCarousel.prev();
+    },
+    next() {
+      this.$refs.myCarousel.next();
+    },
     getBook() {
       this.$store.state.weapons.forEach((book) => {
         if (book.id === Number(this.$route.params.book)) {
@@ -128,10 +258,17 @@ export default {
         this.$store.state.cart.push(this.book);
       }
     },
+    pushDetail(id) {
+      this.$router.push("/detail/" + id);
+    },
   },
 };
 </script>
 <style scoped>
+.carousel-control-prev {
+  color: aqua;
+}
+
 .divCard {
   display: flex;
   flex-direction: row;
@@ -164,5 +301,11 @@ export default {
   overflow: hidden;
   max-height: 100%;
   text-align: justify;
+}
+.attName {
+  max-width: 18ch;
+  overflow: hidden;
+  text-overflow: unset;
+  white-space: nowrap;
 }
 </style>

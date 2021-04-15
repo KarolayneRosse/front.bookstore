@@ -9,13 +9,13 @@
 
       <b-collapse id="nav-collapse" is-nav class="text-light">
         <b-navbar-nav class="ml-auto">
-          <router-link to="/cadastro" v-show="!logged" class="mr-2 text-light"
+          <!-- <router-link to="/cadastro" v-show="!logged" class="mr-2 text-light"
             >Cadastre-se</router-link
           >
           
           <router-link to="/login" v-show="!logged" class="ml-2 text-light"
             >Login</router-link
-          >
+          > -->
 
           <b-button @click="$router.push('/carrinho')"
             variant="outline" v-show="logged" class="text-light mb-1">

@@ -9,7 +9,6 @@ import VueResource from 'vue-resource'
 import {BootstrapVueIcons} from 'bootstrap-vue'
 import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
 
-
 Vue.use(BootstrapVueIcons)
 Vue.use(VueResource)
 
