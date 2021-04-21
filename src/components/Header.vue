@@ -7,7 +7,7 @@
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-      <b-collapse id="nav-collapse" is-nav class="text-light">
+      <b-collapse id="nav-collapse" is-nav >
         <b-navbar-nav class="ml-auto">
           <!-- <router-link to="/cadastro" v-show="!logged" class="mr-2 text-light"
             >Cadastre-se</router-link
@@ -27,16 +27,16 @@
             no-caret
             dropleft
             variant="outline"
-            class="ml-2 dropColor text-light mt-3"
+            class="ml-2 dropColor mt-3"
             v-show="logged"
           >
             <template #button-content>
               <b-icon icon="person-circle" scale="2" class="text-light"></b-icon>
             </template>
 
-            <b-dropdown-item>Link inativo</b-dropdown-item>
+            <b-dropdown-item class="text-dark">Meus pedidos</b-dropdown-item>
             <b-dropdown-divider></b-dropdown-divider>
-            <b-dropdown-item @click="logout()">Sair</b-dropdown-item>
+            <b-dropdown-item class="text-dark">Sair</b-dropdown-item>
           </b-dropdown>
         </b-navbar-nav>
       </b-collapse>

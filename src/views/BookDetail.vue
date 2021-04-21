@@ -10,9 +10,10 @@
           />
         </b-col>
         <b-col>
-          <h3 class="bookName text-left">{{ book.name }}</h3>
+          <h3 class="bookName text-left mb-3">{{ book.name }}</h3>
           <br />
           <br />
+          <br>
           <div
             :class="
               btnLer
@@ -20,7 +21,7 @@
                 : 'description p-2 text-justify'
             "
           >
-            <p>{{ book.description }}</p>
+            <p class="mt-3">{{ book.description }}</p>
           </div>
           <b-button @click="btnLer = !btnLer" variant="outline">{{
             btnLer ? "Ler menos" : "Ler mais"

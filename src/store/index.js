@@ -359,7 +359,8 @@ export default new Vuex.Store({
     ],
     loggedIn: true,
     user:{},
-    cart: []
+    cart: [],
+    totalValue: 0
   },
   mutations: {
     setUSer(state, payload){
@@ -377,5 +378,10 @@ export default new Vuex.Store({
     gerUserData(state){
       return state.user
     },
+    getTotal(state){
+      return state.cart.map((value)=>{
+        state.totalValue += value.price
+      })
+    }
   }
 })

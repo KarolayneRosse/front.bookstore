@@ -1,11 +1,22 @@
 <template>
   <div id="cart">
     <div>
-      <div class="ml-3 mt-2">
-        <h4>Carrinho de compras</h4>
+      <div class="ml-3 mt-2" v-if="books.length > 0">
+        <b-row>
+          <b-col>
+            <h4>Carrinho de compras</h4>
+          </b-col>
+          <b-col>
+            <h5>Total da compra: {{total | money}}</h5>
+          </b-col>
+        </b-row>
       </div>
-      <div>
-        <b-card class="border-top-1" v-for="book in books" :key="book.id">
+      <div :class="books.length < 3 ? 'cartcheio': 'cartvazio'">
+        <div v-if="books.length <= 0">
+          <h3 class="text-center mt-5">Não há itens no seu carrinho :(</h3>
+        </div>
+        <div v-else>
+          <b-card class="border-top-1" v-for="(book, index) in books" :key="book.id">
           <b-row>
             <b-col sm="2">
               <b-img width="130" :src="require(`@/assets/${book.images[0].url}`)"></b-img>
@@ -29,7 +40,7 @@
                 </b-row>
                 <div class="ml-4 mt-2">
                     |
-                <b-button variant="outline" v-b-tooltip.hover title="Ainda não tenho funcionalidade">
+                <b-button variant="outline" @click="deleteItem(index)">
                     <small>Excluir</small>
                 </b-button>
                 </div>
@@ -40,6 +51,7 @@
             </b-col>
           </b-row>
         </b-card>
+        </div>
       </div>
     </div>
   </div>
@@ -86,9 +98,23 @@ export default {
   created(){
     this.getBooksCart();
   },
+  computed:{
+    total(){
+      let value = 0
+
+      this.$store.state.cart.forEach(element => {
+        value += element.price
+      });
+
+      return value
+    }
+  },
   methods:{
     getBooksCart(){
       this.books = this.$store.state.cart;
+    },
+    deleteItem(index){
+      this.$store.state.cart.splice(index, 1)
     }
   }
 };
@@ -96,6 +122,12 @@ export default {
 <style scoped>
 .selectQnt {
   width: 60px;
+}
+.cartvazio{
+  height: 100%;
+}
+.cartcheio{
+  height: 100vh;
 }
 #cart{
   height: 100%;
