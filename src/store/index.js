@@ -357,8 +357,9 @@ export default new Vuex.Store({
         id: 10
       },
     ],
-    loggedIn: true,
+    loggedIn: false,
     user:{},
+    users:[],
     cart: [],
     totalValue: 0
   },

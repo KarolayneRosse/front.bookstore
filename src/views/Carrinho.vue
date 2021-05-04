@@ -103,7 +103,7 @@ export default {
       let value = 0
 
       this.$store.state.cart.forEach(element => {
-        value += element.price
+        value += (element.price * element.qnt)
       });
 
       return value
@@ -115,7 +115,7 @@ export default {
     },
     deleteItem(index){
       this.$store.state.cart.splice(index, 1)
-    }
+    },
   }
 };
 </script>

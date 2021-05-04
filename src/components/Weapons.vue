@@ -14,14 +14,14 @@
           ></b-img>
         </div>
 
-        <!-- <b-button
+        <b-button
           variant="warning"
           v-show="logged"
           class="btnComprar"
-          @click="addToCart(arma)"
+          @click="pushDetail(arma.id)"
         >
           <b>Comprar</b>
-        </b-button> -->
+        </b-button>
 
         <div>
           <h5 @click="$router.push(`/detail/${arma.id}`)"
@@ -44,11 +44,6 @@ export default {
     },
   },
   methods: {
-    addToCart(item) {
-      let cart = this.$store.state.cart;
-
-      cart.push(item);
-    },
     pushDetail(id){
       this.$router.push('/detail/' + id)
     }
